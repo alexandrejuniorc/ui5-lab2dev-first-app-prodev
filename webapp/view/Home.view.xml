@@ -14,14 +14,20 @@
             headerLevel="H2"
             items="{products>/}"
         >
-            <StandardListItem
-                id="_IDGenStandardListItem1"
-                type="Active"
-                press="onPress"
-                icon="{products>index}"
-                title="{products>title}"
-                counter="{products>counter}"
-            />
+            <ObjectListItem
+                id="_IDGenObjectListItem1"
+                title="{products>ProductName}"
+                number="{products>UnitPrice}"
+                numberUnit="USD"
+            >
+                <firstStatus>
+                    <ObjectStatus
+                        id="_IDGenObjectStatus1"
+                        text="{products>Discontinued}"
+                        state="Success"
+                    />
+                </firstStatus>
+            </ObjectListItem>
         </List>
     </Page>
 </mvc:View>
