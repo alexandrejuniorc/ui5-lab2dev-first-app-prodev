@@ -1,0 +1,22 @@
+<mvc:View
+    controllerName="com.lab2dev.firstapp.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <Button
+                id="test-button"
+                text="test"
+            />
+            <Text
+                id="test-text"
+                text="Olá, mundo!"
+            />
+        </content>
+    </Page>
+</mvc:View>
