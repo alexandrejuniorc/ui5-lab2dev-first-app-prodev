@@ -4,19 +4,25 @@
     displayBlock="true"
     xmlns="sap.m"
 >
-    <Page
-        id="page"
-        title="{i18n>title}"
+    <List
+        id="_IDGenList1"
+        headerText="Products"
+        headerLevel="H2"
     >
-        <content>
-            <Button
-                id="test-button"
-                text="test"
-            />
-            <Text
-                id="test-text"
-                text="Olá, mundo!"
-            />
-        </content>
-    </Page>
+        <StandardListItem
+            id="_IDGenStandardListItem1"
+            title="Produto 1"
+            counter="7"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem2"
+            title="Produto 2"
+            counter="10"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem3"
+            title="Produto 3"
+            counter="5"
+        />
+    </List>
 </mvc:View>
