@@ -1,15 +1,28 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, MessageToast) {
         "use strict";
 
         return Controller.extend("com.lab2dev.firstapp.controller.Home", {
             onInit: function () {
 
+            },
+            onPress: function (oEvent) {
+                // Origem do evento
+                const item = oEvent.getSource();
+                
+                // Título do item
+                const title = item.getTitle();
+
+                // Mensagem a ser exibida
+                const message = `O item: ${title} foi clicado!`;
+
+                MessageToast.show(message);
             }
         });
     });
