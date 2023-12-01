@@ -11,18 +11,53 @@
     >
         <StandardListItem
             id="_IDGenStandardListItem1"
-            title="Produto 1"
-            counter="7"
+            title="Arroz"
+            counter="5"
         />
         <StandardListItem
             id="_IDGenStandardListItem2"
-            title="Produto 2"
-            counter="10"
+            title="Feijão"
+            counter="8"
         />
         <StandardListItem
             id="_IDGenStandardListItem3"
-            title="Produto 3"
-            counter="5"
+            title="Macarrão"
+            counter="10"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem4"
+            title="Óleo de Cozinha"
+            counter="3"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem5"
+            title="Leite"
+            counter="7"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem6"
+            title="Café"
+            counter="4"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem7"
+            title="Açúcar"
+            counter="6"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem8"
+            title="Sal"
+            counter="2"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem9"
+            title="Farinha de Trigo"
+            counter="9"
+        />
+        <StandardListItem
+            id="_IDGenStandardListItem10"
+            title="Sabonete"
+            counter="11"
         />
     </List>
 </mvc:View>
