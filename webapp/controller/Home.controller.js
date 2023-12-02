@@ -30,8 +30,10 @@ sap.ui.define(
         // Título do item
         const title = item.getTitle();
 
+        const i18n = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+
         // Mensagem a ser exibida
-        const message = `O item: ${title} foi clicado!`;
+        const message = i18n.getText("dynamicItemClicked", [title]);
 
         MessageBox.information(message, {
           title: "Informação do Item",
