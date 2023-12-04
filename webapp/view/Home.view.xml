@@ -16,6 +16,12 @@
                     width="100%"
                     placeholder="{i18n>searchPlaceholder}"
                 />
+                <SearchField
+                    id="searchFieldOData"
+                    search="onSearchOData"
+                    width="100%"
+                    placeholder="{i18n>searchPlaceholderOData}"
+                />
             </Toolbar>
         </subHeader>
 
