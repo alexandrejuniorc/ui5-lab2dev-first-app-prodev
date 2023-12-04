@@ -16,6 +16,9 @@ sap.ui.define(
       onInit: function () {
         const params = { urlParameters: { $expand: "Category" } };
         const products = models.getProducts(params);
+        const list = this.byId("list");
+
+        list.setBusy(true);
 
         products
           .then((oProductsModel) => {
@@ -23,6 +26,9 @@ sap.ui.define(
           })
           .catch((oError) => {
             MessageBox.error(oError.message);
+          })
+          .finally(() => {
+            list.setBusy(false);
           });
       },
       onPress: function (oEvent) {
@@ -49,8 +55,12 @@ sap.ui.define(
         const sQuery = oEvent.getSource().getValue();
 
         if (sQuery && sQuery.length > 0) {
-            const filter = new Filter("ProductName", FilterOperator.Contains, sQuery);
-            aFilters.push(filter);
+          const filter = new Filter(
+            "ProductName",
+            FilterOperator.Contains,
+            sQuery
+          );
+          aFilters.push(filter);
         }
 
         // update list binding
@@ -62,25 +72,28 @@ sap.ui.define(
         const sQuery = oEvent.getSource().getValue();
 
         const params = {
-            urlParameters: {
-                $expand: "Category"
-            },
-            filters: [
-                new Filter("ProductName", FilterOperator.Contains, sQuery)
-            ]
+          urlParameters: {
+            $expand: "Category",
+          },
+          filters: [new Filter("ProductName", FilterOperator.Contains, sQuery)],
         };
 
         const products = models.getProducts(params);
 
+        const list = this.byId("list");
+        list.setBusy(true);
+
         products
-            .then((oProductsModel) => {
-                this.getView().setModel(oProductsModel, 'products');
-
-            }).catch((oError) => {
-                MessageBox.error(oError);
-
-            });
-      }
+          .then((oProductsModel) => {
+            this.getView().setModel(oProductsModel, "products");
+          })
+          .catch((oError) => {
+            MessageBox.error(oError);
+          })
+          .finally(() => {
+            list.setBusy(false);
+          });
+      },
     });
   }
 );
