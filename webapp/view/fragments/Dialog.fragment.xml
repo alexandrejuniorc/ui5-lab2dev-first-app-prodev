@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <m:Dialog
+        id="helloDialog"
+        title="My Dialog"
+    >
+        <m:content>
+            <m:VBox>
+                <m:Text text="Hello World!" />
+                <m:Button
+                    text="Close"
+                    press="onCloseDialog"
+                />
+            </m:VBox>
+        </m:content>
+    </m:Dialog>
+</core:FragmentDefinition>

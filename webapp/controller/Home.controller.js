@@ -10,7 +10,7 @@ sap.ui.define(
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, MessageBox, models, Filter, FilterOperator,formatter) {
+  function (Controller, MessageBox, models, Filter, FilterOperator, formatter) {
     "use strict";
 
     return Controller.extend("com.lab2dev.firstapp.controller.Home", {
@@ -97,6 +97,18 @@ sap.ui.define(
             list.setBusy(false);
           });
       },
+      onOpenDialog: function () {
+        const viewId = this.getView().getId()
+
+        if(!this.dialog){
+          this.dialog = sap.ui.xmlfragment(viewId, "com.lab2dev.firstapp.view.fragments.Dialog", this);
+          this.getView().addDependent(this.dialog)
+        }
+        this.dialog.open()
+      },
+      onCloseDialog: function () {
+        this.dialog.close()
+      }
     });
   }
 );
