@@ -7,7 +7,7 @@
         title="My Dialog"
     >
         <m:content>
-            <m:VBox>
+            <m:VBox class="sapUiSmallMargin">
                 <m:Text text="Hello World!" />
                 <m:Button
                     text="Close"
