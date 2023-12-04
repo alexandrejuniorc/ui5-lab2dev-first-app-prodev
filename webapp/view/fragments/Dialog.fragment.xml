@@ -8,7 +8,10 @@
     >
         <m:content>
             <m:VBox class="sapUiSmallMargin">
-                <m:Text text="Hello World!" />
+                <m:Text
+                    class="myCustomClass"
+                    text="Hello World!"
+                />
                 <m:Button
                     text="Close"
                     press="onCloseDialog"
