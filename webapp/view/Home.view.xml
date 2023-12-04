@@ -8,32 +8,43 @@
         id="page"
         title="{i18n>title}"
     >
-        <List
-            id="_IDGenList1"
-            headerText="Products"
-            headerLevel="H2"
-            items="{products>/}"
-        >
-            <ObjectListItem
-                id="_IDGenObjectListItem1"
-                title="{products>ProductName}"
-                number="{products>UnitPrice}"
-                numberUnit="USD"
-                type="Active"
-                press="onPress"
-            >
-                <firstStatus>
-                    <ObjectStatus
-                        id="_IDGenObjectStatus1"
-                        text="{products>Discontinued}"
-                        state="Success"
-                    />
-                </firstStatus>
+        <subHeader>
+            <Toolbar>
+                <SearchField
+                    id="searchField"
+                    liveChange="onSearch"
+                    width="100%"
+                    placeholder="{i18n>searchPlaceholder}"
+                />
+            </Toolbar>
+        </subHeader>
 
-                <ObjectAttribute text="{products>Category/CategoryName}"/> 
-                <ObjectAttribute text="{products>UnitsInStock} in Stock"/> 
-                <ObjectAttribute text="{products>QuantityPerUnit}"/> 
-            </ObjectListItem>
-        </List>
+        <content>
+            <List
+                id="list"
+                headerText="Products"
+                headerLevel="H2"
+                items="{products>/}"
+            >
+                <ObjectListItem
+                    title="{products>ProductName}"
+                    number="{products>UnitPrice}"
+                    numberUnit="USD"
+                    type="Active"
+                    press="onPress"
+                >
+                    <firstStatus>
+                        <ObjectStatus
+                            text="{products>Discontinued}"
+                            state="Success"
+                        />
+                    </firstStatus>
+
+                    <ObjectAttribute text="{products>Category/CategoryName}" />
+                    <ObjectAttribute text="{products>UnitsInStock} in Stock" />
+                    <ObjectAttribute text="{products>QuantityPerUnit}" />
+                </ObjectListItem>
+            </List>
+        </content>
     </Page>
 </mvc:View>
