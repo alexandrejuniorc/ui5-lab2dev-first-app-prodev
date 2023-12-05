@@ -35,22 +35,31 @@ sap.ui.define(
           });
       },
       onPress: function (oEvent) {
-        // Origem do evento
-        const item = oEvent.getSource();
+        //Origem do evento, item da lista
+        const source = oEvent.getSource();
 
-        // Título do item
-        const title = item.getTitle();
+        //Contexto do item da lista, o nome do model
+        const context = source.getBindingContext("products");
 
-        const i18n = this.getOwnerComponent()
-          .getModel("i18n")
-          .getResourceBundle();
+        //Index do item da lista
+        const path = context.getPath();
 
-        // Mensagem a ser exibida
-        const message = i18n.getText("dynamicItemClicked", [title]);
+        //Acesso ao objeto do item da lista pelo path
+        const product = context.getObject(path);
 
-        MessageBox.information(message, {
-          title: "Informação do Item",
-        });
+        //Acesso ao ID do produto
+        const productID = product.ProductID;
+
+        //Acesso ao Component
+        const oComponent = this.getOwnerComponent();
+
+        //Acesso ao Router
+        const oRouter = oComponent.getRouter();
+
+        //Navegação para a rota RouteDetail
+        //O Objeto do segundo parâmetro deo navTo é um objeto que a chave é o parâmetro
+        //configurado no pattern da rota RouteDetail e o valor é número do ProductId
+        oRouter.navTo("RouteDetail", { productID });
       },
       onSearch: function (oEvent) {
         // add filter for search
@@ -98,17 +107,21 @@ sap.ui.define(
           });
       },
       onOpenDialog: function () {
-        const viewId = this.getView().getId()
+        const viewId = this.getView().getId();
 
-        if(!this.dialog){
-          this.dialog = sap.ui.xmlfragment(viewId, "com.lab2dev.firstapp.view.fragments.Dialog", this);
-          this.getView().addDependent(this.dialog)
+        if (!this.dialog) {
+          this.dialog = sap.ui.xmlfragment(
+            viewId,
+            "com.lab2dev.firstapp.view.fragments.Dialog",
+            this
+          );
+          this.getView().addDependent(this.dialog);
         }
-        this.dialog.open()
+        this.dialog.open();
       },
       onCloseDialog: function () {
-        this.dialog.close()
-      }
+        this.dialog.close();
+      },
     });
   }
 );

@@ -9,7 +9,7 @@
         title="{i18n>title}"
     >
         <subHeader>
-            <Toolbar>
+            <Toolbar id="_IDGenToolbar1">
                 <SearchField
                     id="searchField"
                     liveChange="onSearch"
@@ -22,8 +22,7 @@
                     width="100%"
                     placeholder="{i18n>searchPlaceholderOData}"
                 />
-                <ToolbarSeparator />
-
+                <ToolbarSeparator id="_IDGenToolbarSeparator1" />
                 <Button
                     id="helloDialogButton"
                     icon="sap-icon://hello-world"
@@ -33,7 +32,6 @@
                 />
             </Toolbar>
         </subHeader>
-
         <content>
             <List
                 id="list"
@@ -48,7 +46,7 @@
                     }
                  }"
             >
-                <ObjectListItem
+                <ObjectListItem id="_IDGenObjectListItem1"
                     title="{
                         path: 'products>ProductName',
                         formatter: '.formatter.toUpperCase'
@@ -60,7 +58,7 @@
                     press="onPress"
                 >
                     <firstStatus>
-                        <ObjectStatus
+                        <ObjectStatus id="_IDGenObjectStatus1"
                             text="{
                                 parts: [
                                     {path: 'products>UnitsInStock'},
@@ -77,10 +75,9 @@
                             }"
                         />
                     </firstStatus>
-
-                    <ObjectAttribute text="{products>Category/CategoryName}" />
-                    <ObjectAttribute text="{products>UnitsInStock} in Stock" />
-                    <ObjectAttribute text="{products>QuantityPerUnit}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute1" text="{products>Category/CategoryName}" />
+                    <ObjectAttribute id="_IDGenObjectAttribute2" text="{products>UnitsInStock} in Stock" />
+                    <ObjectAttribute id="_IDGenObjectAttribute3" text="{products>QuantityPerUnit}" />
                 </ObjectListItem>
             </List>
         </content>
