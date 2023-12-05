@@ -1,6 +1,6 @@
 sap.ui.define(
   [
-    "sap/ui/core/mvc/Controller",
+    "com/lab2dev/firstapp/controller/BaseController",
     "sap/m/MessageBox",
     "com/lab2dev/firstapp/model/models",
     "sap/ui/model/Filter",
@@ -10,10 +10,10 @@ sap.ui.define(
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, MessageBox, models, Filter, FilterOperator, formatter) {
+  function (BaseController, MessageBox, models, Filter, FilterOperator, formatter) {
     "use strict";
 
-    return Controller.extend("com.lab2dev.firstapp.controller.Home", {
+    return BaseController.extend("com.lab2dev.firstapp.controller.Home", {
       formatter: formatter,
 
       onInit: function () {
@@ -59,7 +59,7 @@ sap.ui.define(
         //Navegação para a rota RouteDetail
         //O Objeto do segundo parâmetro deo navTo é um objeto que a chave é o parâmetro
         //configurado no pattern da rota RouteDetail e o valor é número do ProductId
-        oRouter.navTo("RouteDetail", { productID });
+        this.navTo("RouteDetail", { productID });
       },
       onSearch: function (oEvent) {
         // add filter for search

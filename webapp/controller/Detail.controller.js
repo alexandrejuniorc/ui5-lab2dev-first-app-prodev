@@ -1,5 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/ui/core/routing/History", "sap/ui/model/json/JSONModel"],
+  [
+    "com/lab2dev/firstapp/controller/BaseController",
+    "sap/ui/core/routing/History",
+    "sap/ui/model/json/JSONModel",
+  ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    * @param {typeof sap.ui.core.routing.History} History
@@ -35,9 +39,7 @@ sap.ui.define(
         if (sPreviousHash !== undefined) {
           window.history.go(-1);
         } else {
-          const oComponent = this.getOwnerComponent();
-          const oRouter = oComponent.getRouter();
-          oRouter.navTo("RouteHome", {}, true);
+          this.navTo("RouteHome");
         }
       },
     });
